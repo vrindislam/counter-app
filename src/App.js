@@ -45,10 +45,12 @@ class App extends Component {
         window.location.reload();
     };
 
-    handleAddItem = () => {
-        const counters = [...this.state.counters]
-        counters.push({id: 5, value: 0})
-        this.setState({counters})
+    handleAddItem = lastCounter => {
+        const counters = [...this.state.counters];
+         lastCounter = counters.slice(-1)[0];
+        const nextId = lastCounter.id +1
+        counters.push({id:nextId,value: 0})
+        this.setState({counters});
     }
 
     handleTotalItemCounter = sumCounters => {
@@ -56,6 +58,7 @@ class App extends Component {
         sumCounters = counters.map(c => c.value).reduce((sum, elem) => sum + elem);
         return sumCounters
     }
+
 
     render() {
         return (
