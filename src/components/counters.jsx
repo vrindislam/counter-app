@@ -9,7 +9,8 @@ class Counters extends Component {
       onDelete,
       onDecrement,
       counters,
-      onRestart
+      onRestart,
+        onAddItem,
     } = this.props;
     return (
       <div>
@@ -27,6 +28,12 @@ class Counters extends Component {
         >
           <i className="fa fa-recycle" aria-hidden="true" />
         </button>
+          <button
+              className="btn btn-dark"
+              onClick={onAddItem}
+          >
+              <span>add</span>
+          </button>
         {counters.map(counter => (
           <Counter
             key={counter.id}
@@ -34,6 +41,7 @@ class Counters extends Component {
             onIncrement={onIncrement}
             onDecrement={onDecrement}
             onDelete={onDelete}
+            onAddItem={onAddItem}
           />
         ))}
       </div>

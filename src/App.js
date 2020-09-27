@@ -45,6 +45,12 @@ class App extends Component {
     window.location.reload();
   };
 
+  handleAddItem = () =>{
+    const counters =[...this.state.counters]
+    counters.push({id: 5, value: 0})
+    this.setState({counters})
+  }
+
   render() {
     return (
       <div>
@@ -59,6 +65,7 @@ class App extends Component {
             onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             onRestart={this.handleRestart}
+            onAddItem={this.handleAddItem}
           />
         </main>
       </div>
